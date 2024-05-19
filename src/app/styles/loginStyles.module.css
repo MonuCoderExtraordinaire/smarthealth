@@ -1,0 +1,49 @@
+.container {
+  height: 93vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #85ffbd;
+  background-image: linear-gradient(45deg, #85ffbd 0%, #fffb7d 100%);
+  backdrop-filter: blur(3px); /* Glass blur effect */
+}
+
+.formContainer {
+  background: rgba(255, 255, 255, 0.15); /* Transparent background */
+  backdrop-filter: blur(10px); /* Glass blur effect */
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Shadow effect */
+}
+
+.label {
+  color: white;
+}
+
+.inputField {
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+}
+
+.inputField:hover {
+  transition-duration: 500ms;
+  scale: 103%;
+}
+
+.submitButton {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submitButton:hover {
+  color: white;
+  background-color: #0a720b;
+  transition-duration: 300ms;
+  scale: 105%;
+}

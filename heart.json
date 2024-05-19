@@ -1,0 +1,112 @@
+[
+    {
+        "Time": "00:24:22",
+        "Blood Pressure (mmHg)": "100/80",
+        "Heart Rate (bpm)": 96,
+        "Respiration Rate (breaths/min)": 17,
+        "ECG (mV)": 0.38,
+        "Blood Sugar (mg/dL)": 170,
+        "Cholesterol Level (mg/dL)": 286,
+        "EEG (microvolts)": -47.77,
+        "EMG (microvolts)": 5.67
+    },
+    {
+        "Time": "00:25:22",
+        "Blood Pressure (mmHg)": "103/81",
+        "Heart Rate (bpm)": 88,
+        "Respiration Rate (breaths/min)": 14,
+        "ECG (mV)": 0.2,
+        "Blood Sugar (mg/dL)": 176,
+        "Cholesterol Level (mg/dL)": 289,
+        "EEG (microvolts)": -2.65,
+        "EMG (microvolts)": 0.46
+    },
+    {
+        "Time": "00:26:22",
+        "Blood Pressure (mmHg)": "117/76",
+        "Heart Rate (bpm)": 70,
+        "Respiration Rate (breaths/min)": 15,
+        "ECG (mV)": -0.21,
+        "Blood Sugar (mg/dL)": 178,
+        "Cholesterol Level (mg/dL)": 243,
+        "EEG (microvolts)": 72.14,
+        "EMG (microvolts)": 2.42
+    },
+    {
+        "Time": "00:27:22",
+        "Blood Pressure (mmHg)": "138/82",
+        "Heart Rate (bpm)": 69,
+        "Respiration Rate (breaths/min)": 18,
+        "ECG (mV)": -0.48,
+        "Blood Sugar (mg/dL)": 79,
+        "Cholesterol Level (mg/dL)": 215,
+        "EEG (microvolts)": 88.6,
+        "EMG (microvolts)": 5.1
+    },
+    {
+        "Time": "00:28:22",
+        "Blood Pressure (mmHg)": "122/79",
+        "Heart Rate (bpm)": 98,
+        "Respiration Rate (breaths/min)": 12,
+        "ECG (mV)": 0.38,
+        "Blood Sugar (mg/dL)": 74,
+        "Cholesterol Level (mg/dL)": 217,
+        "EEG (microvolts)": 18.83,
+        "EMG (microvolts)": 6.36
+    },
+    {
+        "Time": "00:29:22",
+        "Blood Pressure (mmHg)": "132/71",
+        "Heart Rate (bpm)": 65,
+        "Respiration Rate (breaths/min)": 15,
+        "ECG (mV)": -0.35,
+        "Blood Sugar (mg/dL)": 165,
+        "Cholesterol Level (mg/dL)": 259,
+        "EEG (microvolts)": -4.26,
+        "EMG (microvolts)": 1.05
+    },
+    {
+        "Time": "00:30:22",
+        "Blood Pressure (mmHg)": "90/69",
+        "Heart Rate (bpm)": 74,
+        "Respiration Rate (breaths/min)": 16,
+        "ECG (mV)": 0.0,
+        "Blood Sugar (mg/dL)": 82,
+        "Cholesterol Level (mg/dL)": 184,
+        "EEG (microvolts)": 30.36,
+        "EMG (microvolts)": 5.83
+    },
+    {
+        "Time": "00:31:22",
+        "Blood Pressure (mmHg)": "95/71",
+        "Heart Rate (bpm)": 68,
+        "Respiration Rate (breaths/min)": 15,
+        "ECG (mV)": -0.08,
+        "Blood Sugar (mg/dL)": 89,
+        "Cholesterol Level (mg/dL)": 269,
+        "EEG (microvolts)": -95.25,
+        "EMG (microvolts)": 7.42
+    },
+    {
+        "Time": "00:34:43",
+        "Blood Pressure (mmHg)": "98/86",
+        "Heart Rate (bpm)": 61,
+        "Respiration Rate (breaths/min)": 17,
+        "ECG (mV)": -0.615687,
+        "Blood Sugar (mg/dL)": 134,
+        "Cholesterol Level (mg/dL)": 174,
+        "EEG (microvolts)": 3.623353,
+        "EMG (microvolts)": 5.694198
+    },
+    {
+        "Time": "00:34:48",
+        "Blood Pressure (mmHg)": "106/70",
+        "Heart Rate (bpm)": 80,
+        "Respiration Rate (breaths/min)": 12,
+        "ECG (mV)": -0.210958,
+        "Blood Sugar (mg/dL)": 93,
+        "Cholesterol Level (mg/dL)": 154,
+        "EEG (microvolts)": -28.950033,
+        "EMG (microvolts)": 4.595898
+    }
+]
