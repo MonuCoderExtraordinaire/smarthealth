@@ -6,20 +6,19 @@ const DoctorSchema = new mongoose.Schema({
   fullName: String,
   email: String,
   password: String,
-  doctorOrPatient: {
-    type: String,
-    default: "doctor",
-  },
 });
 
 const PatientSchema = new mongoose.Schema({
   fullName: String,
   email: String,
   password: String,
-  doctorOrPatient: {
-    type: String,
-    default: "patient",
-  },
+  age: String,
+  BPMeds: String,
+  cigsPerDay: String,
+  isSmoking: String,
+  sex: String,
+  weight: String,
+  height: String,
 });
 
 const ContactSchema = new mongoose.Schema({

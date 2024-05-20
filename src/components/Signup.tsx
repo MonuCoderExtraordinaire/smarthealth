@@ -5,6 +5,8 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { BASE_URL } from "@/app/config";
 import { useRouter } from "next/navigation";
+import { useSetRecoilState } from "recoil";
+import { patientState } from "@/store/atoms/patientState";
 
 interface Signup {
   fullName: string;
@@ -14,34 +16,46 @@ interface Signup {
 }
 
 export default function Signup() {
+  const setPatientState = useSetRecoilState(patientState);
   const router = useRouter();
   const {
     handleSubmit,
     register,
+    watch,
     formState: { errors },
   } = useForm<Signup>();
+
+  const doctorOrPatient = watch("doctorOrPatient");
+
   const onSubmit = async (data: Signup) => {
     console.log(data);
-    try {
-      const response = await axios.post(
-        `${BASE_URL}/${data.doctorOrPatient}/signup`,
-        data,
-        {
+    if (data.doctorOrPatient === "patient") {
+      setPatientState({
+        email: data.email,
+        password: data.password,
+        fullName: data.fullName,
+        isPatientLoading: true,
+      });
+      router.push("/survey");
+    } else {
+      try {
+        const response = await axios.post(`${BASE_URL}/doctor/signup`, data, {
           headers: {
             "Content-Type": "application/json",
           },
+        });
+        if (response.status === 200) {
+          console.log(response.data);
+          router.push("/login");
+        } else {
+          console.log("Failed Response:", response.data);
         }
-      );
-      if (response.status === 200) {
-        console.log(response.data);
-        router.push("/login");
-      } else {
-        console.log("Failed Response:", response.data);
+      } catch (error) {
+        console.error("Error while sending the request:", error);
       }
-    } catch (error) {
-      console.error("Error while sending the request:", error);
     }
   };
+
   return (
     <div className={styles.container}>
       <form
@@ -103,8 +117,7 @@ export default function Signup() {
                 {...register("doctorOrPatient", {
                   required: "Please select the options.",
                 })}
-                value={"doctor"}
-                // defaultChecked={true}
+                value={"doctor"}  
                 type="radio"
                 style={{ borderRadius: "50%" }}
               />
@@ -135,7 +148,7 @@ export default function Signup() {
           }}
         >
           <button className={styles.submitButton} type="submit">
-            Sign Up
+            {doctorOrPatient === "patient" ? "Next" : "Signup"}
           </button>
         </div>
       </form>

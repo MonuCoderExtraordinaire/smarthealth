@@ -16,12 +16,13 @@ const express_1 = __importDefault(require("express"));
 const mongoose_1 = require("../db/mongoose");
 const json2csv_1 = require("json2csv");
 const fs_1 = __importDefault(require("fs"));
+const path_1 = __importDefault(require("path"));
 const router = express_1.default.Router();
 router.post("/signup", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { fullName, email, password, doctorOrPatient } = req.body;
     const doesDoctorAlreadyExist = yield mongoose_1.DoctorModel.findOne({ fullName, email });
     if (doesDoctorAlreadyExist) {
-        return res.json({ message: "User already exists" }).status(403);
+        return res.json({ message: "Doctor already exists" }).status(403);
     }
     const newDoctor = new mongoose_1.DoctorModel({
         fullName,
@@ -32,7 +33,15 @@ router.post("/signup", (req, res) => __awaiter(void 0, void 0, void 0, function*
     yield newDoctor.save();
     const csvData = (0, json2csv_1.parse)([{ fullName, email, password }], { header: false });
     console.log(csvData);
-    fs_1.default.appendFileSync("../csvFile/DoctorSignup.csv", csvData + "\n", "utf-8");
+    const dirPath = path_1.default.join(__dirname, "../..", "csvFile");
+    console.log("dirPath:", dirPath);
+    const filePath = path_1.default.join(dirPath, "DoctorSignup.csv");
+    // Ensure the directory exists
+    if (!fs_1.default.existsSync(dirPath)) {
+        fs_1.default.mkdirSync(dirPath, { recursive: true });
+    }
+    // Append data to the file
+    fs_1.default.appendFileSync(filePath, csvData + "\n", "utf-8");
     return res.json({ message: "Signed Up successfully", email }).status(200);
 }));
 router.post("/login", (req, res) => __awaiter(void 0, void 0, void 0, function* () {

@@ -10,19 +10,18 @@ const DoctorSchema = new mongoose_1.default.Schema({
     fullName: String,
     email: String,
     password: String,
-    doctorOrPatient: {
-        type: String,
-        default: "doctor",
-    },
 });
 const PatientSchema = new mongoose_1.default.Schema({
     fullName: String,
     email: String,
     password: String,
-    doctorOrPatient: {
-        type: String,
-        default: "patient",
-    },
+    age: String,
+    BPMeds: String,
+    cigsPerDay: String,
+    isSmoking: String,
+    sex: String,
+    weight: String,
+    height: String,
 });
 const ContactSchema = new mongoose_1.default.Schema({
     firstName: String,

@@ -27,22 +27,42 @@ export default function Dashboard() {
         flexDirection: "column",
         gap: "15px",
         overflowX: "auto",
-        padding: 10
+        padding: 10,
       }}
     >
-      <div style={{
-        display: "flex",
-        flexDirection: "column",
-        gap: "15px",
-        overflowX: "auto",
-        padding: 10,
-        borderRadius: "2px",
-        borderColor: "black"
-      }}><p>Heart rate</p><Graph data={data} x={"Time"} y={"Heart Rate (bpm)"} /></div>
-      <div><p>ECG</p><Graph data={data} x={"Time"} y={"ECG (mV)"} /></div>
-      <div><p>Respiration rate</p><Graph data={data} x={"Time"} y={"Respiration Rate (breaths/min)"} /></div>
-      <div><p>EEG</p><Graph data={data} x={"Time"} y={"EEG (microvolts)"} /></div>
-      <div><p>EMG</p><Graph data={data} x={"Time"} y={"EMG (microvolts)"} /></div>
+      <p style={{ fontWeight: "600", fontFamily: "cursive", fontSize:"30px" }}>
+        Welcome, {localStorage.getItem("fullName")}
+      </p>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "15px",
+          overflowX: "auto",
+          padding: 10,
+          borderRadius: "2px",
+          borderColor: "black",
+        }}
+      >
+        <p>Heart rate</p>
+        <Graph data={data} x={"Time"} y={"Heart Rate (bpm)"} />
+      </div>
+      <div>
+        <p>ECG</p>
+        <Graph data={data} x={"Time"} y={"ECG (mV)"} />
+      </div>
+      <div>
+        <p>Respiration rate</p>
+        <Graph data={data} x={"Time"} y={"Respiration Rate (breaths/min)"} />
+      </div>
+      <div>
+        <p>EEG</p>
+        <Graph data={data} x={"Time"} y={"EEG (microvolts)"} />
+      </div>
+      <div>
+        <p>EMG</p>
+        <Graph data={data} x={"Time"} y={"EMG (microvolts)"} />
+      </div>
     </div>
   );
 }

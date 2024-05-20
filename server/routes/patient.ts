@@ -2,10 +2,22 @@ import express, { Request, Response } from "express";
 import { PatientModel } from "../db/mongoose";
 import { parse } from "json2csv";
 import fs from "fs";
+import path from "path";
 const router = express.Router();
 
 router.post("/signup", async (req: Request, res: Response) => {
-  const { fullName, email, password, doctorOrPatient } = req.body;
+  const {
+    fullName,
+    email,
+    password,
+    age,
+    BPMeds,
+    cigsPerDay,
+    isSmoking,
+    sex,
+    weight,
+    height,
+  } = req.body;
   const doesPatientAlreadyExist = await PatientModel.findOne({
     fullName,
     email,
@@ -17,12 +29,44 @@ router.post("/signup", async (req: Request, res: Response) => {
     fullName,
     email,
     password,
-    doctorOrPatient,
+    age,
+    BPMeds,
+    cigsPerDay,
+    isSmoking,
+    sex,
+    weight,
+    height,
   });
   await newPatient.save();
-  const csvData = parse([{ fullName, email, password }], { header: false });
+  const csvData = parse(
+    [
+      {
+        fullName,
+        email,
+        password,
+        age,
+        BPMeds,
+        cigsPerDay,
+        isSmoking,
+        sex,
+        weight,
+        height,
+      },
+    ],
+    { header: false }
+  );
   console.log(csvData);
-  fs.appendFileSync("../csvFile/PatientSignup.csv", csvData + "\n", "utf-8");
+  const dirPath = path.join(__dirname, "../..", "csvFile");
+  console.log("dirPath:", dirPath);
+  const filePath = path.join(dirPath, "PatientSignup.csv");
+
+  // Ensure the directory exists
+  if (!fs.existsSync(dirPath)) {
+    fs.mkdirSync(dirPath, { recursive: true });
+  }
+
+  // Append data to the file
+  fs.appendFileSync(filePath, csvData + "\n", "utf-8");
   return res.json({ message: "Signed Up successfully", email }).status(200);
 });
 

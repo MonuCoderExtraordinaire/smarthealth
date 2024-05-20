@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Request, Response } from "express";
 import cors from "cors";
 import doctorRouter from "./routes/doctor";
 import patientRouter from "./routes/patient";
@@ -16,6 +16,10 @@ app.use(express.json());
 app.use("/doctor", doctorRouter);
 app.use("/patient", patientRouter);
 app.use("", contactRouter);
+
+app.get("/", async (req: Request, res: Response) => {
+  res.send("Working");
+});
 
 app.listen(3002, () => {
   console.log("Server is up and running");
